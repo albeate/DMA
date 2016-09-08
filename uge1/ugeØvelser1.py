@@ -227,3 +227,74 @@ def f4(x,y,z):
 print star*10
 print star*10
 print "f4: ",f4(x,y,z)
+
+
+def T1(A1,n):
+	x = 0
+	for i in range(n-1):
+		x = x + A1[i]
+	return x
+
+def T2(A2,n,y):
+	x = 0
+	for i in range(n-1):
+		if A2[i] == y:
+			x = x + 1
+	return x
+
+def T3(A3,n):
+	for i in range(n-2):
+		if A3[i] > A3[i+1]:
+			temp = A3[i+1]
+			A3[i+1] = A3[i]
+			A3[i] = temp
+	return A3
+
+A1 = [2,3,1,4,3] 
+#A1 = [0,-1,1]
+print star*15
+print star*15
+print "T1: ", T1(A1,5)
+#print "T1: ", T1(A1,3)
+
+#A2 = [2,3,4,2]
+A2 = [2,3,4,2]
+print star*15
+#print "T2: ",T2(A2,4,2)
+print "T2: ",T2(A2,4,3)
+
+A3 = [7,10,12,2]
+print star*15
+print "T3: ",T3(A3,4)
+
+A = [2,3,1,55,3,45,7]
+def mindste(A,n):
+	"""
+	virker naesten.
+	"""
+	for j in range(0,n):
+		x = A[j]
+		i = j - 1
+		while i > 0 and A[i] > x:
+			A[i+1] = A[i]
+			i = i - 1
+		A[i+1] = x
+	return A
+print "mindste: ",mindste(A,7)
+
+def sum100(A,n):
+	for i in range(n):
+		if A[i] + A[i+1] == 100:
+			return A[i], A[i+1]
+	return False
+print "sum til 100: ",sum100(A,7)
+
+Z = [34,6,7,32,4,1,100,2]
+def maxZombie(Z):
+	n = len(Z)
+	zL = Z[0]
+	for i in range(n-1):
+		if zL < Z[i]:
+			zL.insert(Z[i])
+	return zL
+print "zombie list: ",maxZombie(Z)
