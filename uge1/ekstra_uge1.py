@@ -15,6 +15,7 @@ def exists(A,n,x):
 	hi = n
 	while hi >= lo:
 		mid = int(math.floor((hi+lo)/2))
+		print "\nmid: ",mid
 		if x > A[mid]:
 			lo = mid+1
 		elif x < A[mid]:

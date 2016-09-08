@@ -22,3 +22,25 @@ def exists(A,n,x):
 		else:
 			return True
 	return False
+
+
+print exists(A,8,17)
+>> True
+
+print exists(A,8,14)
+>> False
+
+print exists(A,4,16)
+>> False
+
+print exists(A,8,3) 
+>> mid: 4
+>> mid: 1 
+>> mid: 0
+>> False
+
+print exists(B,6,12) 
+>> False
+
+print exists(B,7,1)
+>> False

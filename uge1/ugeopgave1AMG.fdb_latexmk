@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1473332440 "ugeopgave1AMG.tex" "/home/albeate/Dropbox/Datalogi/år0/DMA/uge1/ugeopgave1AMG.pdf" "ugeopgave1AMG" 1473332440
+["pdflatex"] 1473332782 "ugeopgave1AMG.tex" "/home/albeate/Dropbox/Datalogi/år0/DMA/uge1/ugeopgave1AMG.pdf" "ugeopgave1AMG" 1473332782
   "/etc/texmf/web2c/texmf.cnf" 1469388582 1101 af7716885e081ab43982cab7b4672c1a ""
-  "/home/albeate/Dropbox/Datalogi/år0/DMA/uge1/ugeopgave1AMG.aux" 1473332440 239 e7affe1cee206cbe46a02ded1465a5c0 ""
+  "/home/albeate/Dropbox/Datalogi/år0/DMA/uge1/ugeopgave1AMG.aux" 1473332782 239 e7affe1cee206cbe46a02ded1465a5c0 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -83,13 +83,13 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1458942643 31351 b32c45dce4a01cb7b53ed90c546614ca ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1469389046 1863403 f3ff9a4253bcb5fb9a9baaf0c572cb01 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1469389128 3861017 1b3b5701a07beff1176a421d84ba5b43 ""
-  "uge1.py" 1473331674 419 77d48ca18acc1075b8d391308502ab9c ""
-  "ugeopgave1AMG.aux" 1473332440 239 e7affe1cee206cbe46a02ded1465a5c0 ""
+  "uge1.py" 1473332774 636 637953f8f8dd937e596dba3e8ccf4754 ""
+  "ugeopgave1AMG.aux" 1473332782 239 e7affe1cee206cbe46a02ded1465a5c0 ""
   "ugeopgave1AMG.tex" 1473332440 3655 939461257d0f7ab68a93522e4bf9fa64 ""
   (generated)
-  "/home/albeate/Dropbox/Datalogi/år0/DMA/uge1/ugeopgave1AMG.log"
-  "/home/albeate/Dropbox/Datalogi/år0/DMA/uge1/ugeopgave1AMG.pdf"
-  "ugeopgave1AMG.log"
-  "ugeopgave1AMG.pdf"
   "ugeopgave1AMG.aux"
   "ugeopgave1AMG.toc"
+  "ugeopgave1AMG.log"
+  "/home/albeate/Dropbox/Datalogi/år0/DMA/uge1/ugeopgave1AMG.log"
+  "ugeopgave1AMG.pdf"
+  "/home/albeate/Dropbox/Datalogi/år0/DMA/uge1/ugeopgave1AMG.pdf"
