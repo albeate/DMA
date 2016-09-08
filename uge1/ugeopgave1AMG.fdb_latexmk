@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1473331891 "ugeopgave1AMG.tex" "/home/albeate/Dropbox/Datalogi/år0/DMA/uge1/ugeopgave1AMG.pdf" "ugeopgave1AMG" 1473331892
+["pdflatex"] 1473332152 "ugeopgave1AMG.tex" "/home/albeate/Dropbox/Datalogi/år0/DMA/uge1/ugeopgave1AMG.pdf" "ugeopgave1AMG" 1473332153
   "/etc/texmf/web2c/texmf.cnf" 1469388582 1101 af7716885e081ab43982cab7b4672c1a ""
-  "/home/albeate/Dropbox/Datalogi/år0/DMA/uge1/ugeopgave1AMG.aux" 1473331892 239 e7affe1cee206cbe46a02ded1465a5c0 ""
+  "/home/albeate/Dropbox/Datalogi/år0/DMA/uge1/ugeopgave1AMG.aux" 1473332153 239 e7affe1cee206cbe46a02ded1465a5c0 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -84,11 +84,11 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1469389046 1863403 f3ff9a4253bcb5fb9a9baaf0c572cb01 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1469389128 3861017 1b3b5701a07beff1176a421d84ba5b43 ""
   "uge1.py" 1473331674 419 77d48ca18acc1075b8d391308502ab9c ""
-  "ugeopgave1AMG.aux" 1473331892 239 e7affe1cee206cbe46a02ded1465a5c0 ""
-  "ugeopgave1AMG.tex" 1473331891 3664 168ce2eafe2b7cb90626f67aebadec0b ""
+  "ugeopgave1AMG.aux" 1473332153 239 e7affe1cee206cbe46a02ded1465a5c0 ""
+  "ugeopgave1AMG.tex" 1473332152 3669 b937d0c14ce6cc663299ce5c32145631 ""
   (generated)
   "/home/albeate/Dropbox/Datalogi/år0/DMA/uge1/ugeopgave1AMG.log"
-  "ugeopgave1AMG.pdf"
-  "/home/albeate/Dropbox/Datalogi/år0/DMA/uge1/ugeopgave1AMG.pdf"
-  "ugeopgave1AMG.log"
   "ugeopgave1AMG.aux"
+  "ugeopgave1AMG.pdf"
+  "ugeopgave1AMG.log"
+  "/home/albeate/Dropbox/Datalogi/år0/DMA/uge1/ugeopgave1AMG.pdf"
