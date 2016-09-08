@@ -68,34 +68,35 @@
 %\maketitle
 %\tableofcontents
 \titleGM % This command includes the title page
-\lstinputlisting[language=Python]{uge1.py}
+
 \section*{Del 1}
+\lstinputlisting[language=Python]{uge1.py}
 \subsubsection*{a}
-Den returnerer True, da dels er x = 17 og algorithmen når at køre igennem før hi er lig med lo.
+Den returnerer True, da dels er $x = 17$ og algorithmen når at køre igennem før hi er lig med lo.
 
 \subsubsection*{b}
-Den returnerer False, da x = 14 ikke er en del af listen.
+Den returnerer False, da $x = 14$ ikke er en del af listen.
 
 \subsubsection*{c}
-Den returnerer False, da hi ikke er stor nok til at algorithm kan nå, at køre igennem listen.
+Den returnerer False, da $hi$ ikke er stor nok til at algorithm kan nå, at køre igennem listen før den bliver termineret.
 
 \subsubsection*{d}
 Vi for mid til at være hhv.:
 \begin{itemize}
-\item 4
-\item 1
-\item 0
+\item $4$
+\item $1$
+\item $0$
 \end{itemize}
 
 \section*{Del 2}
-Tjekker hvorvidt x eksistere i listen, hvis ja så returnerer den True. Den returnerer False dels hvis x ikke eksisterer i listen, men også når hi er for lavt da den ikke når at køre igennem listen. Listen skal også være sorteret ellers giver den et tilfældigt svar. 
+Tjekker hvorvidt $x$ eksistere i listen, hvis ja så returnerer den True. Den returnerer False dels hvis $x$ ikke eksisterer i listen, men også når $hi$ er for lavt da den ikke når at køre igennem listen. Listen skal også være sorteret ellers giver den et tilfældigt svar. 
 
 \section*{Del 3}
 \subsubsection*{a}
-Den kan ikke give True på noget som helst tidspunkt, da x skal eksistere i listen da mid er et indekserings tal.
+Den kan ikke give True på noget som helst tidspunkt, da $x$ skal eksistere i listen da mid er et indekserings tal.
 
 \subsubsection*{b}
-Ja, den giver False når hi er for lavt og når et lavt tal har et højere indeks, og vice versa, end mid så vil algorithmen returnerer False.
+Ja, den giver False når $hi$ er for lavt og når et lavt tal har et højere indeks, og vice versa, end mid så vil algorithmen returnerer False.
 
 \section*{Del 4}
 Når $n=17$ kan vores implementeret algoritme, skrevet i python, ikke køre da vi vil få en \textit{out of bounce} fejl. I andre tilfælde, såsom C vil du bare få skrald, hvilket kan være hvad som helst. 

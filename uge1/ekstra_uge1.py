@@ -22,3 +22,15 @@ def exists(A,n,x):
 		else:
 			return True
 	return False
+
+print "exists(A,8,17) returnerer: ",exists(A,8,17)
+print "*"*20
+print "exists(A,8,14) returnerer: ",exists(A,8,14)
+print "*"*20
+print "exists(A,4,16) returnerer: ",exists(A,4,16)
+print "*"*20
+print "exists(A,8,3) returnerer: ",exists(A,8,3) # mid 4, mid 1, mid 0
+print "*"*20
+print "exists(B) returnerer: ",exists(B,6,12) 
+print "*"*20
+print "exists(B,7,1) returnerer: ",exists(B,7,1)
