@@ -1,0 +1,73 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc} 
+\usepackage[danish]{babel} 
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{ulem}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{marvosym}
+
+\newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
+\newcommand{\setR}{\mathbb{R}} 
+\newcommand{\setF}{\mathbb{F}} 
+\newcommand{\setN}{\mathbb{N}} 
+\newcommand{\pder}[2][]{\frac{\partial#1}{\partial#2}}
+\newcommand{\RNum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+
+\newcommand*{\titleGM}{\begingroup % Create the command for including the title page in the document
+	\hbox{ % Horizontal box
+		\hspace*{0.2\textwidth} % Whitespace to the left of the title page
+		\rule{1pt}{\textheight} % Vertical line
+		\hspace*{0.05\textwidth} % Whitespace between the vertical line and title page text
+		\parbox[b]{0.75\textwidth}{ % Paragraph box which restricts text to less than the width of the page
+			
+			{\noindent\Huge\bfseries DMA \\[0.5\baselineskip] }\\[2\baselineskip] % Title
+			{\large \textit{Ugeopgave 1}}\\[4\baselineskip] % Tagline or further description
+			{\Large \textsc{Beate Berendt Søegaard}}\\ % Author name
+			{\Large \textsc{Mathias Larsen}}\\ % Author name
+			{\Large \textsc{Simon Rotendahl}} % Author name
+			
+			\vspace{0.5\textheight} % Whitespace between the title block and the publisher
+			{\noindent Datalogi}\\[\baselineskip] \today% Publisher and logo
+		}}
+		\endgroup}
+	
+%\title{Navnet på faget  \\ \Large Aflevering}
+%\author{Beate B. Søegaard}
+\begin{document}
+%\maketitle
+%\tableofcontents
+\titleGM % This command includes the title page
+\section*{Del 1}
+\subsubsection*{a}
+Den returnerer True, da dels er x = 17 og algorithmen når at køre igennem før hi er lig med lo.
+
+\subsubsection*{b}
+Den returnerer False, da x = 14 ikke er en del af listen.
+
+\subsubsection*{c}
+Den returnerer False, da hi ikke er stor nok til at algorithm kan nå, at køre igennem listen.
+
+\subsubsection*{d}
+Vi for mid til at være hhv.:
+\begin{itemize}
+\item 4
+\item 2
+\item 1
+\end{itemize}
+
+\section*{Del 2}
+Tjekker hvorvidt x eksistere i listen, hvis ja så returnerer den True. Den returnerer False dels hvis x ikke eksisterer i listen, men også når hi er for lavt da den ikke når at køre igennem listen. Listen skal også være sorteret ellers giver den et tilfældigt svar. 
+
+\section*{Del 3}
+\subsubsection*{a}
+Den kan ikke give True på noget som helst tidspunkt, da x skal eksistere i listen da mid er et indekserings tal.
+
+\subsubsection*{b}
+Ja, den giver False når hi er for lavt og når et lavt tal har et højere indeks, og vice versa, end mid så vil algorithmen returnerer False.
+\section*{Del 4}
+\end{document}
