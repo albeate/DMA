@@ -11,6 +11,32 @@
 \usepackage{xcolor}
 \usepackage{marvosym}
 
+\usepackage{listings}
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
+\lstdefinestyle{customasm}{
+  belowcaptionskip=1\baselineskip,
+  frame=L,
+  xleftmargin=\parindent,
+  language=[x86masm]Assembler,
+  basicstyle=\footnotesize\ttfamily,
+  commentstyle=\itshape\color{purple!40!black},
+}
+
+\lstset{escapechar=@,style=customc}
+
 \newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
 \newcommand{\setR}{\mathbb{R}} 
 \newcommand{\setF}{\mathbb{F}} 
@@ -42,6 +68,7 @@
 %\maketitle
 %\tableofcontents
 \titleGM % This command includes the title page
+\lstinputlisting[language=Python]{uge1.py}
 \section*{Del 1}
 \subsubsection*{a}
 Den returnerer True, da dels er x = 17 og algorithmen når at køre igennem før hi er lig med lo.
@@ -69,5 +96,7 @@ Den kan ikke give True på noget som helst tidspunkt, da x skal eksistere i list
 
 \subsubsection*{b}
 Ja, den giver False når hi er for lavt og når et lavt tal har et højere indeks, og vice versa, end mid så vil algorithmen returnerer False.
+
 \section*{Del 4}
+Når $n=17$ kan vores implementeret algoritme, skrevet i python, ikke køre da vi vil få en \textit{out of bounce} fejl. I andre tilfælde, såsom C vil du bare få skrald, hvilket kan være hvad som helst. 
 \end{document}
