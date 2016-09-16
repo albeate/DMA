@@ -11,6 +11,8 @@
 \usepackage{xcolor}
 \usepackage{marvosym}
 
+\usepackage[margin=.7in]{geometry}
+
 \usepackage{listings}
 \lstdefinestyle{customc}{
   belowcaptionskip=1\baselineskip,
@@ -52,10 +54,10 @@
 		\parbox[b]{0.75\textwidth}{ % Paragraph box which restricts text to less than the width of the page
 			
 			{\noindent\Huge\bfseries DMA \\[0.5\baselineskip] }\\[2\baselineskip] % Title
-			{\large \textit{Ugeopgave 1}}\\[4\baselineskip] % Tagline or further description
+			{\large \textit{Ugeopgave 2}}\\[4\baselineskip] % Tagline or further description
 			{\Large \textsc{Beate Berendt Søegaard}}\\ % Author name
-			{\Large \textsc{Mathias Larsen}}\\ % Author name
-			{\Large \textsc{Simon Rotendahl}} % Author name
+			%{\Large \textsc{Mathias Larsen}}\\ % Author name
+			%{\Large \textsc{Simon Rotendahl}} % Author name
 			
 			\vspace{0.5\textheight} % Whitespace between the title block and the publisher
 			{\noindent Datalogi}\\[\baselineskip] \today% Publisher and logo
@@ -66,39 +68,63 @@
 %\author{navn}
 \begin{document}
 %\maketitle
-\titleGM % This command includes the title page
 %\tableofcontents
+\titleGM % This command includes the title page
 
 \section*{Del 1}
-\lstinputlisting[language=Python]{uge1.py}
-\subsubsection*{a}
-Den returnerer True, da $x = 17$ er en del af listen. 
+Der er 3 inversion i listen [2,1,8,4,3,6], da kriterier for algorithm er således,
+\begin{align}
+(i,j) = A[i] > A[j] \wedge i < j
+\end{align}
+Hvor $A[i]$ og $A[j]$ er tallet på det vilkårlige indeksplads og $i$ og $j$ er selve indekset. \\
 
-\subsubsection*{b}
-Den returnerer False, da $x = 14$ ikke er en del af listen.
+De tre inversion er altså 
+\begin{align*}
+(i,j) = (2,1) \rightarrow A[2] > A[1] \wedge 0 < 1 \\
+(i,j) = (8,4) \rightarrow A[8] > A[4] \wedge 2 < 3 \\
+(i,j) = (4,3) \rightarrow A[4] > A[3] \wedge 3 < 4 
+\end{align*}
 
-\subsubsection*{c}
-Den returnerer False, da $hi$ ikke er stor nok til at algorithm kan nå, at køre igennem listen før den bliver termineret.
-
-\subsubsection*{d}
-Vi får $mid$ til at være hhv.:
-\begin{itemize}
-\item $3$
-\item $1$
-\item $0$
-\end{itemize}
 
 \section*{Del 2}
-Tjekker hvorvidt $x$ eksistere blandt de først $n$ i listen, hvis ja så returnerer den True. Den returnerer False dels hvis $x$ ikke eksisterer i listen, men også når $hi$ er for lavt da den ikke når at køre igennem listen. Listen skal også være sorteret ellers giver den et tilfældigt svar. 
+Jf. CLRS A.1 har vi den aritmetiske række 
+\begin{align*}
+\sum_{k=1}^{n} k = 1 + 2 + \cdots + n = \sum_{k=1}^{n} k = \frac{n(n+1)}{2}
+\end{align*}
+
+Ved at tage en vikårlig liste, $A1 = [2,4,6,8,10]$ og køre den igennem trin for trin, som nedenfor,
+\begin{align*}
+(2,4), \quad\quad n-1 \\
+(4,6), \quad\quad n-2 \\
+(6,8), \quad\quad n-3 \\
+\vdots \quad\quad\quad\quad \vdots \quad\\
+(n-1,n),\quad1\quad 	
+\end{align*}
+%må finde på noget mere effektiv
+Får man 
+\begin{align*}
+(n-1)+(n-2)+(n-3)+\cdots+1
+\end{align*}
+Så har man, at den aritmetiske række kan omskrives til
+\begin{align*}
+\sum_{k=1}^{n-1} k = \frac{n(n-1)}{2}
+\end{align*}
+Som er det maksimale antal af inversion $A$ kan have. 
+
 
 \section*{Del 3}
-\subsubsection*{a}
-Den kan ikke give True på noget som helst tidspunkt, da $x$ skal eksistere i listen da mid er et indekserings tal.
-
-\subsubsection*{b}
-Den vil returnere False hvis $x > A[mid]$, men indekset af $x$ er mindre og vil også returnere False hvis $x < A[mid]$, men indekset af $x$ er større.  \\
-E.g. $A1 = [23,5,6,10,15,16,17,1]$, hvor $exist(A,8,1)$ vil returnere False.
+\begin{lstlisting}
+(1) A = [2,8,4,3,5]
+(2) inversion(A)
+(3)	 n = A.lenght
+(4)	 m = 0
+(5)	   for i=0 to n-1:
+(6)	     for j=0 to n-1:
+(7)		   if A[i] > A[j] and i < j then:
+(8)			 m += 1 
+(9)	 return m
+\end{lstlisting}
 
 \section*{Del 4}
-Med et nul indekseret array der er $n = 17$ langt, kan while loopet i $exist()$ køre maksimalt 5 gange.
+(3), (5), (7) koster $c(n)$ og (4), (9) koster $c(1)$. Det der koster mest er løkke nummer to, (6), der koster $c(n^2)$. Derfor er køretiden $T(n) = \Theta(n^2)$.
 \end{document}
