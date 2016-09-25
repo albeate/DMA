@@ -1,0 +1,167 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc} 
+\usepackage[danish]{babel} 
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{ulem}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{marvosym}
+
+\usepackage{listings}
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
+\lstdefinestyle{customasm}{
+  belowcaptionskip=1\baselineskip,
+  frame=L,
+  xleftmargin=\parindent,
+  language=[x86masm]Assembler,
+  basicstyle=\footnotesize\ttfamily,
+  commentstyle=\itshape\color{purple!40!black},
+}
+
+\lstset{escapechar=@,style=customc}
+
+\newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
+\newcommand{\setR}{\mathbb{R}} 
+\newcommand{\setF}{\mathbb{F}} 
+\newcommand{\setN}{\mathbb{N}} 
+\newcommand{\pder}[2][]{\frac{\partial#1}{\partial#2}}
+\newcommand{\RNum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+
+\newcommand*{\titleGM}{\begingroup % Create the command for including the title page in the document
+	\hbox{ % Horizontal box
+		\hspace*{0.2\textwidth} % Whitespace to the left of the title page
+		\rule{1pt}{\textheight} % Vertical line
+		\hspace*{0.05\textwidth} % Whitespace between the vertical line and title page text
+		\parbox[b]{0.75\textwidth}{ % Paragraph box which restricts text to less than the width of the page
+			
+			{\noindent\Huge\bfseries DMA \\[0.5\baselineskip] }\\[2\baselineskip] % Title
+			{\large \textit{Ugeopgave 1}}\\[4\baselineskip] % Tagline or further description
+			{\Large \textsc{Beate Berendt Søegaard}}\\ % Author name
+			{\Large \textsc{Mathias Larsen}}\\ % Author name
+			{\Large \textsc{Simon Rotendahl}} % Author name
+			
+			\vspace{0.5\textheight} % Whitespace between the title block and the publisher
+			{\noindent Datalogi}\\[\baselineskip] \today% Publisher and logo
+		}}
+		\endgroup}
+	
+%\title{faget  \\ \Large Aflevering #}
+%\author{navn}
+\begin{document}
+%\maketitle
+\titleGM % This command includes the title page
+%\tableofcontents
+
+\section*{Del 1}
+I den første sektion ser vi på størrelsesorden af de følgende følger ved brug af formelsamliingen, $O1-O8$ og $S1-S8$, for DMA.\\
+
+$n + log_2 n$:
+\begin{align*}
+	(1: S2): log_2 n \in O(n)\\
+	(2): n \in \Theta(n) \Rightarrow n \in \mathcal{O}(n)\\
+	(3: 1, 2, O8):  n + log_2 n \in \mathcal{O}(n)\\
+	(4: S3): n \in o(n^2)\\
+	(5: 4, 3):  n + log_2 n \notin \Theta(n^2)
+\end{align*}
+$n^2 + 2^n$:
+\begin{align*}
+	(1: S5): n^2 \in o(2^n)\\
+	(2: S8): n^2 + 2^n \in \Theta(2^n)\\
+	(3: 2): n^2 + 2^n \notin \Theta(n^2)
+\end{align*}
+$n^2 + n log_{10}n$:
+\begin{align*}
+	(1: S2): log_{10}n \in \mathcal{O}(n)\\
+	(2: S7, 1): n log_{10}n \in o(n*n) = o(n^2)\\
+	(3): n^2 \in \Theta(n^2)\\
+	(4: S8, 2, 3): n^2 + n log_{10} n \in \Theta(n^2)
+\end{align*}
+$(n+\sqrt{n})^2 = n^2 + n + 2n\sqrt{n}$:
+\begin{align*}
+	(1: S6): 2n\sqrt{n} \in \Theta(n\sqrt{n})\\
+	(2: S7, S8): n + 2n\sqrt{n} \in \Theta(n\sqrt{n})\\
+	(3: S7, S8, 2): n^2 + n + 2n\sqrt{n} \in \Theta(n^2)
+\end{align*}
+$n^2(3 + sqrt{n}) = 3n^2 + n^2n^{\frac{1}{2}}$:
+\begin{align*}
+	(1: S6): 3n^2 \in \Theta(n^2)\\
+	(2: S8, 1): 3n^2 + n^2n^{\frac{1}{2}} \in \Theta(n^2n^{\frac{1}{2}}\\
+		(3: 2): n^2(3 + \sqrt{n}) \notin \Theta(n^2)
+\end{align*}
+
+\section*{Del 2}
+\subsection*{a} % (fold)
+\label{sub:a}
+Vi vil beregne de tre første værdier af følgerne.\\
+
+% subsection  (end)
+
+\subsection*{b} % (fold)
+\label{sub:b}
+Følgerne sorteret hhv. til størrelseorden.\\
+Vi fra forrige delopgave at 
+\begin{align*}
+a_n &= 10 \\
+b_n &= \frac{2n^3+3n^2+n}{6} \\
+c_n &= \frac{n^2}{10} \\
+d_n &= \Big(\frac{3}{2}\Big)^n
+\end{align*}
+Jf. regnereglerne $S6$ og $S3$ kan vi fjerne konstanterne og forkorte vores følger således,
+\begin{align*}
+a_n &= \mathcal{O}(1)\\
+b_n &= \mathcal{O}(2n^3+3n^2+n^1) = \mathcal{O}(2n^3)\\
+c_n &= \mathcal{O}(n^2) \\
+d_n &= \mathcal{O}\Big(\Big(\frac{3}{2}\Big)^n\Big)
+\end{align*}
+
+Det ses let at, følgen $a_n$ er den mindste blandt følgerne, da den er lig nul. Jf. regl $S5$ er $b_n = \mathcal{O}(b_n)$. Jf. regl $S3$ ser vi at $c_n = \mathcal{O}(b_n)$ og slutvis, jf. regl $O1$, har vi at $c_n = \mathcal{O}(d_n)$. Altså er rækkefølgen
+\begin{align*}
+&a_n \\
+&c_n \\
+&b_n \\
+&d_n 
+\end{align*}
+% subsection  (end)
+
+
+\section*{Del 3}
+Vi får givet den følgende sumfølge
+\begin{align*}
+\sum_{k=0}^{n} (2k+1) \\
+\end{align*}
+Vi kan splitte vores sumfølge op og får 
+\begin{align*}
+2\sum_{k=0}^{n}k + \sum_{k=0}^{n} 1 &=\\ 
+\end{align*}
+Jf. formelsamlingen for DMA har vi, at
+\begin{align*}
+&= 2\frac{n(n+1)}{2}+n \\
+\end{align*}
+Men da vi starter fra $k=0$ omskrives formlen til 
+\begin{align*}
+&= 2\frac{n(n+1)}{2}+n+1 \\
+&= (n+1)n+n+1 \\
+&= (n+1)^2
+\end{align*}
+Således har vi det følgende eksplicit udtryk for sumfølgen
+\begin{align*}
+\sum_{k=0}^{n} (2k+1) = (n+1)^2
+\end{align*}
+\end{document}
