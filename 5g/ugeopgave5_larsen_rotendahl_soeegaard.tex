@@ -1,0 +1,236 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc} 
+\usepackage[danish]{babel} 
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{ulem}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{marvosym}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,shapes.multipart,chains,arrows}
+\tikzset{
+squarecross/.style={
+    draw, rectangle,minimum size=18pt, fill=orange!80,
+    inner sep=0pt, text=black,
+    path picture = {
+        \draw[black]
+        (path picture bounding box.north west) --
+        (path picture bounding box.south east)
+        (path picture bounding box.south west) --
+        (path picture bounding box.north east);
+    }
+  }
+}
+
+\usepackage{listings}
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
+\lstdefinestyle{customasm}{
+  belowcaptionskip=1\baselineskip,
+  frame=L,
+  xleftmargin=\parindent,
+  language=[x86masm]Assembler,
+  basicstyle=\footnotesize\ttfamily,
+  commentstyle=\itshape\color{purple!40!black},
+}
+
+\lstset{escapechar=@,style=customc}
+
+\newcommand*{\mybox}[2]{\colorbox{#1!30}{\parbox{.98\linewidth}{#2}}}
+\newcommand{\setR}{\mathbb{R}} 
+\newcommand{\setF}{\mathbb{F}} 
+\newcommand{\setN}{\mathbb{N}} 
+\newcommand{\setZ}{\mathbb{Z}}
+\newcommand{\pder}[2][]{\frac{\partial#1}{\partial#2}}
+\newcommand{\RNum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+
+\newcommand*{\titleGM}{\begingroup % Create the command for including the title page in the document
+	\hbox{ % Horizontal box
+		\hspace*{0.2\textwidth} % Whitespace to the left of the title page
+		\rule{1pt}{\textheight} % Vertical line
+		\hspace*{0.05\textwidth} % Whitespace between the vertical line and title page text
+		\parbox[b]{0.75\textwidth}{ % Paragraph box which restricts text to less than the width of the page
+			
+			{\noindent\Huge\bfseries DMA \\[0.5\baselineskip] }\\[2\baselineskip] % Title
+			{\large \textit{Ugeopgave 5}}\\[4\baselineskip] % Tagline or further description
+			{\Large \textsc{Beate Berendt Søegaard}}\\ % Author name
+			{\Large \textsc{Mathias Larsen}}\\ % Author name
+			{\Large \textsc{Simon Rotendahl}} % Author name
+			
+			\vspace{0.5\textheight} % Whitespace between the title block and the publisher
+			{\noindent Datalogi}\\[\baselineskip] \today% Publisher and logo
+		}}
+		\endgroup}
+	
+%\title{faget  \\ \Large Aflevering #}
+%\author{navn}
+\begin{document}
+%\maketitle
+\titleGM % This command includes the title page
+%\tableofcontents
+\section*{Del 1}
+\subsection*{1}
+Vi får givet en table med GCD, \textit{Greatest Common Divisor}
+
+\begin{figure} [h]
+\begin{center}
+\begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
+&1&2&3&4&5&6&7&8&9&10&11&12&13&14&15\\\hline\hline
+1&1&1&1&1&1&1&1&1&1&1&1&1&1&1&1\\\hline
+2&&1&2&1&2&1&2&1&2&1&2&1&2&1&2\\\hline
+3&&&1&2&3&1&2&3&1&2&3&1&2&3&1\\\hline
+4&&&&1&2&2&3&1&2&2&3&1&2&2&3\\\hline
+5&&&&&1&2&3&&3&1&2&3&4&3&1\\\hline
+6&&&&&&1&2&2&2&3&3&1&2&2&2\\\hline
+7&&&&&&&1&2&3&3&4&4&3&1&2\\\hline
+8&&&&&&&&1&2&2&4&2& &3&3\\\hline
+9&&&&&&&&&1&2&3&2&3&4&3\\\hline
+10&&&&&&&&&&1&2&2&3&3&2\\\hline
+11&&&&&&&&&&&1&2&3&4&4\\\hline
+12&&&&&&&&&&&&1&2&2&2\\\hline
+13&&&&&&&&&&&&&1&2&3\\\hline
+14&&&&&&&&&&&&&&1&2\\\hline
+15&&&&&&&&&&&&&&&1\\\hline
+\end{tabular}
+\end{center}
+%\caption{Antal trin i beregningen af $\GCD(a,b)$}\label{antaltrin}
+
+\end{figure}
+
+\begin{lstlisting}
+(1) fun gcd(a,b)
+(2)   if b = then 
+(3)      return a
+(4)   else: 
+(5)      return gcd(b, a mod b)
+\end{lstlisting}
+\begin{align*}
+\text{gcd}(8,5) = 1
+\end{align*}
+\begin{align*}
+\text{gcd}(13,8) = 1
+\end{align*}
+Dvs. de manglende tal er hhv. 1 og 1. 
+ 
+\subsection*{2}
+Lad $t_n$ være det højeste antal trin der skal benyttes til at bestemme GCD(a,b) når $n \geq a \geq b > 0$. Ved at benytte ovenstående figur har vi at $t_1,\cdots,t_{15}$ er,
+\begin{align*}
+t_1 = 1 \\
+t_2 = 1 \\
+t_3 = 2 \\
+t_4 = 2 \\
+t_5 = 3 \\
+t_6 = 2 \\
+t_7 = 3 \\
+t_8 = 3 \\
+t_9 = 3 \\
+t_{10} = 3 \\
+t_{11} = 4 \\
+t_{12} = 4 \\
+t_{13} = 4 \\
+t_{14} = 4 \\
+t_{15} = 4
+\end{align*}
+
+\subsection*{3}
+Vi kan vise at $t_n$ er $\mathcal{O}(n)$. Vi ved at det taget $n$-tid at køre samligningslinjerne i kode igennem samt at vores returneringslinjer tager konstant tid at køre igennem, derfor får vi at
+\begin{align*}
+t_n = \mathcal{O}(n) \cdot \mathcal{O}(1) \cdot \mathcal{O}(1) = \mathcal{O}(n)
+\end{align*}
+
+\subsection*{4}
+Ud fra vores pseudokode og konklusionen vedrørende køretid fra delopgave 1-3, \\
+kan $t_n$ ikke være $\mathcal{O}(1)$.
+
+\subsection*{5}
+Nej, ud fra figur 2, fra opgaveformuleringen, er $t_n = \Theta(n^2)$.
+
+\section*{Del 2}  
+\subsection*{1}
+Vi får givet at 
+\begin{align*}
+P(n) : 5\;|\;(6^n-5n+4) \quad \text{for} \; n \in \setZ
+\end{align*}
+Dvs. at højreside divideret med 5 skal være lig med et heltal $I \in \setZ$. Vi omskriver udtrykket $P(n)=I$. \\
+Først sætter vi $(6^n-5n+4)=x$ så får vi at $5\;|\;x=I$, som vi derefter kan omskrive til $x=5(I)$. Da dette udtryk er nemmere, at arbejde med end $(6^n-5n+4)$, kan vi antage at svaret til $(6^n-5n+4)$ kan løses af et multuplum af 5 og et positivt heltal $I$.\\
+Altså får vi udtrykket
+\begin{align*}
+P(n) & : 5\;|\;(6^n-5n+4) = I \quad I \in \setZ^+, \; n \in \setZ^+
+\end{align*}
+\begin{center}
+Eller
+\end{center}
+\begin{align*}
+P(n) & : (6^n-5n+4) = 5(I) \quad I \in \setZ^+, \; n \in \setZ^+ 
+\end{align*}
+
+\subsection*{2}
+\begin{align*}
+P(n) & : (6^n-5n+4) = 5(I) \\
+P(1) & : (6^1-5(1)+4) = 5(I) \Rightarrow 6-5+4 = 5(I) = 5(1)\\
+P(2) & : (6^2-5(2)+4) = 5(I) \Rightarrow 36-10+4 = 5(I) = 5(6)\\
+P(3) & : (6^3-5(3)+4) = 5(I) \Rightarrow 216-15+4 = 5(I) = 5(41)\\
+P(4) & : (6^4-5(4)+4) = 5(I) \Rightarrow 1298-20+4 = 5(I) = 5(256)\\
+P(5) & : (6^5-5(5)+4) = 5(I) \Rightarrow 7776-25+4 = 5(I) = 5(1551)
+\end{align*}
+
+\subsection*{3}
+Vi har følgen for $b_n$,
+\begin{align*}
+b_n = 6^n-5n+4
+\end{align*}
+og følgen for $b_{n+1}$ vil se ud på følgende måde for $n\in\setZ^+$, altså
+
+\begin{align*}
+b_{n+1} : 6^{k+1}-5(k+1)+4 &= 5(I_k) \\
+6^{k+1}-5k -5 +4 &= 5(I_k) \\
+6\cdot6^k-5k+4-5 &= 5(I_k) \\
+(5+1)\cdot6^k-5k+4-5 &= 5(I_k) \\
+6^k-5k+4+5\cdot6^k-5 &= 5(I_k) 
+\end{align*}
+Da $b_n = 6^n-5n+4$ kan vi omskrive ovenstående på følgende måde
+\begin{align*}
+b_{n+1} : b_n + 5\cdot6^k-5 &= 5(I)
+\end{align*}
+
+$5(I)$ og $5(I_k)$ skal forstås således at de begge er $\setZ^+$, men ikke nødvendigvis ens. 
+
+\subsection*{4}
+Vi har vist i delopgave 2, at $P(n)$ er sand for $n=1\cdots5$.
+\begin{align*}
+P(k+1) : 6^k-5k+4+5\cdot6^k-5 &= 5(I) \\
+\end{align*}
+Da $P(k) : 6^n-5n+4$ som er lig med $b_n$ som også er lige med $5(I)$, dvs.
+\begin{align*}
+5(I)+5\cdot6^k-5 &= 5(I)
+\end{align*}
+Vi dividere med 5 over hele ligningen, og får
+\begin{align*}
+I+6^k-1 = I_k
+\end{align*}
+Da både $I, k, I_k \in \setZ^+$ ses det let at dette udtryk er sand. 
+
+\subsection*{5}
+Vi har i tidligere delopgaver vist vha. induktion at $\forall n>0\;P(n)$, hvor 
+\begin{align*}
+P(n):5\;|\;(6^n-5n+4)
+\end{align*}
+I delopgave 2-2 udførte vi 5 basistrin for $n=1\cdots5$. Derefter begyndte vi vores første induktiontrin i delopgave 2-3. Her sammenknyttede vi $b_n$ og $b_{n+1}$ til at være $b_{n+1} = b_n + 5\cdot6^n-5$. I delopgave 2-4 færdiggjorde vi vores udregninger fra delopgave 3-2 samt redegjorde for at $P(k+1)$ er sandt, kombineret med vores basistrin som var sandt, kan vi konkludere at $P(n)$ er sand.
+\end{document}
